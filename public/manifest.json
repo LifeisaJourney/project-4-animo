@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Animal News",
+  "name": "Animal News Forum",
   "icons": [
     {
       "src": "favicon.ico",

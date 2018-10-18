@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-// import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import "../Login/style.css";
+import "../Post/style.css";
 
 export default class Post extends Component {
   constructor() {
