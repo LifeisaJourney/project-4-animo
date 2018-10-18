@@ -28,7 +28,7 @@ export default class Post extends Component {
     return this.state.posts.map(post => {
       return (
         <div key={post.id}>
-          <div className="title">{post.post}</div>
+          <div className="post-title">{post.post}</div>
           <div className="day-of-post">{post.created_at.split("T")[0]}</div>
         </div>
       )

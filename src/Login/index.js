@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import "./style.css";
 import { Redirect } from 'react-router-dom';
 
-
 export default class Login extends Component {
   constructor(props) {
     super(props)
