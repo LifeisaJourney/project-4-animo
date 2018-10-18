@@ -2,7 +2,7 @@ import React, { Component } from "react";
 // import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import "../Login/style.css";
 
-export default class Test extends Component {
+export default class Post extends Component {
   constructor() {
     super()
     this.state = {
@@ -38,7 +38,7 @@ export default class Test extends Component {
 
   render() {
     return (
-      <div className="abc">
+      <div className="render-post">
         {this.renderPost()}
       </div>
     );
