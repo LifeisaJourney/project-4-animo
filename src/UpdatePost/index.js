@@ -23,16 +23,17 @@ export default class UpdatePost extends Component {
 
   onSubmit = async (evt) => {
     evt.preventDefault();
-    // const requestBody = JSON.stringify({
-    //   post: {post:this.state.updatedPost}
-    // });
-    // const response = await fetch(`https://animo-news.herokuapp.com/api/posts/${evt.target.dataset.id}`, {
-    //   method: 'PATCH',
-    //   body: requestBody,
-    //   headers: {
-    //     'Content-Type': 'application/json'
-    //   }
-    // });
+    const requestBody = JSON.stringify({
+      post: {post:this.state.updatedPost}
+    });
+    const response = await fetch(`https://animo-news.herokuapp.com/api/posts/${evt.target.dataset.id}`, {
+      method: 'PATCH',
+      body: requestBody,
+      headers: {
+        'Content-Type': 'application/json'
+        
+      }
+    });
     this.props.updatedLine(evt.target.dataset.id, this.state.updatedPost);
   }
 
