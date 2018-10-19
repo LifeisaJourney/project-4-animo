@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
 import Post from './Post';
-import Login from './Login';
+// import Login from './Login';
+import NewPost from './NewPost';
+import UpdatePost from './UpdatePost';
+// import Register from './Register';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 
 class App extends Component {
@@ -15,7 +18,14 @@ class App extends Component {
               <div className="link-wrapper">
                 <Link
                   className="link"
-                  to='/'>Threads </Link>
+                  to='/posts'>Posts </Link>
+                &nbsp;
+                &nbsp;
+            </div>
+            <div className="link-wrapper">
+                <Link
+                  className="posts-new"
+                  to='/posts/new'>New Post </Link>
                 &nbsp;
                 &nbsp;
             </div>
@@ -33,7 +43,9 @@ class App extends Component {
               </div>
             </nav>
             <div>
-              <Post />
+              <Route path ='/posts/new' component ={NewPost} />
+              <Route path ='/posts' exact component = {Post} />
+              {/* <Register /> */}
               {/* <Route path ='/login' exact component = {Login} /> */}
               {/* <Route path ='/register' exact component ={Register} /> */}
             </div>

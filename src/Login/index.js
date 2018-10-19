@@ -6,7 +6,7 @@ export default class Login extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      redirectToReferrer: false,
+      // redirectToReferrer: false,
       username: '',
       password: '',
       message: ''
@@ -41,9 +41,9 @@ export default class Login extends Component {
     }
 
     localStorage.setItem('user-jwt', responseBody.token);
-    this.setState({
-      redirectToReferrer: true,
-    });
+    // this.setState({
+    //   redirectToReferrer: true,
+    // });
   }
 
   render() {

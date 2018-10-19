@@ -1,37 +1,64 @@
 import React, { Component } from "react";
 import "../Post/style.css";
+import UpdatePost from '../UpdatePost';
 
 export default class Post extends Component {
   constructor() {
     super()
     this.state = {
-      posts: []
+      posts: {},
+      updatedPost: ''
     }
+    this.titleChange=this.titleChange.bind(this);
   }
 
   componentDidMount = async () => {
     this.fetchPosts();
   }
 
+  changingToObject = (posts) => {
+    const holder = {};
+    posts.forEach(post => {
+      holder[post.id] = post
+    });
+    return holder;
+  }
+
+  // https://animo-news.herokuapp.com/api/posts
   fetchPosts = async () => {
     const response = await fetch(`https://animo-news.herokuapp.com/api/posts`);
     const responseBody = await response.json();
-    const id = responseBody.posts[0].id;
+    this.changingToObject(responseBody.posts);
     this.setState({
-      posts: responseBody.posts,
+      posts: this.changingToObject(responseBody.posts)
+    });
+  }
+
+  deletePost = (id) => {
+    let updatedState = this.state.posts;
+    delete updatedState[id]
+    this.setState({
+      posts: updatedState
+    });
+  }
+
+  updatedLine = (id, newName) => {
+    let updatedLine = this.state.posts;
+    updatedLine[id].post = newName;
+    this.setState({
+      posts: updatedLine
     })
-    // console.log(responseBody.posts[1].post);
-    // console.log(responseBody.posts[1].created_at.split("T")[0]);
+  }
+
+  titleChange(evt) {
+    this.setState({
+      updatedPost: evt.target.value
+    });
   }
 
   renderPost = () => {
-    return this.state.posts.map(post => {
-      return (
-        <div key={post.id}>
-          <div className="post-title">{post.post}</div>
-          <div className="day-of-post">{post.created_at.split("T")[0]}</div>
-        </div>
-      )
+    return Object.values(this.state.posts).map(post => {
+      return <UpdatePost updatedLine={this.updatedLine} key={post.id} post={post} deletePost={this.deletePost} />
     })
   }
 
