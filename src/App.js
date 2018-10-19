@@ -43,6 +43,7 @@ class App extends Component {
               </div>
             </nav>
             <div>
+              <Route path ='/' component={Post} />
               <Route path ='/posts/new' component ={NewPost} />
               <Route path ='/posts' exact component = {Post} />
               {/* <Register /> */}
