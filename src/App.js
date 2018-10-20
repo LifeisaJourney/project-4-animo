@@ -22,33 +22,18 @@ class App extends Component {
                 &nbsp;
                 &nbsp;
             </div>
-            <div className="link-wrapper">
+              <div className="link-wrapper">
                 <Link
                   className="posts-new"
                   to='/posts/new'>New Post </Link>
                 &nbsp;
                 &nbsp;
             </div>
-              <div className="link-wrapper">
-                <Link
-                  className="link"
-                  to='/register'>Register </Link>
-                &nbsp;
-                &nbsp;
-            </div>
-              <div className="link-wrapper">
-                <Link
-                  className="link"
-                  to='/login' onClick={this.logOut}>Log out/ Log in </Link>
-              </div>
             </nav>
             <div>
-              <Route path ='/' component={Post} />
-              <Route path ='/posts/new' component ={NewPost} />
-              <Route path ='/posts' exact component = {Post} />
-              {/* <Register /> */}
-              {/* <Route path ='/login' exact component = {Login} /> */}
-              {/* <Route path ='/register' exact component ={Register} /> */}
+              <Route path='/posts/new' component={NewPost} />
+              <Route path='/posts' exact component={Post} />
+
             </div>
           </div>
         </div>

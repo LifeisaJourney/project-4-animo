@@ -9,7 +9,7 @@ export default class UpdatePost extends Component {
     this.onSubmit=this.onSubmit.bind(this);
     this.titleChange=this.titleChange.bind(this);
   }
-
+//https://animo-news.herokuapp.com/api/posts/${id}
   deletePost = (id) => async () => {
     const deletePost = await fetch(`https://animo-news.herokuapp.com/api/posts/${id}`, {
       method: 'DELETE',
@@ -20,14 +20,14 @@ export default class UpdatePost extends Component {
     });
     this.props.deletePost(id);
   }
-
+//https://animo-news.herokuapp.com/api/posts/${evt.target.dataset.id}
   onSubmit = async (evt) => {
     evt.preventDefault();
     const requestBody = JSON.stringify({
       post: {post:this.state.updatedPost}
     });
     const response = await fetch(`https://animo-news.herokuapp.com/api/posts/${evt.target.dataset.id}`, {
-      method: 'PATCH',
+      method: 'PUT',
       body: requestBody,
       headers: {
         'Content-Type': 'application/json'
@@ -42,12 +42,14 @@ export default class UpdatePost extends Component {
       updatedPost: evt.target.value
     });
   }
-
+//post.created_at.split("T")[0]
   render() {
     const { post } = this.props;
     return (
       <div key={post.id}>
         <div className="post-title">{post.post}</div>
+
+        <div className="post-day-title">{post.title}</div>
 
         <div className="day-of-post">{post.created_at.split("T")[0]}</div>
 

@@ -22,7 +22,8 @@ export default class NewPost extends Component {
       post: {post:this.state.post}
     });
   
-
+//
+//https://localhost:3000
     const response = await fetch('https://animo-news.herokuapp.com/api/posts', {
       method: 'POST',
       body: requestBody,
