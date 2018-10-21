@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import "../NewPost/style.css"
 
 export default class NewPost extends Component {
   constructor() {
@@ -31,14 +31,25 @@ export default class NewPost extends Component {
         'Content-Type': 'application/json'
       }
     })
+    
   }
 
   render() {
     return (
       <div>
-        <form className="new-post-submission" onSubmit={this.onSubmit}>
-          <input type="text" placeholder="Post" name="post" onChange={this.titleChange} value={this.state.post.post}></input>
+        <form 
+          action="/posts"
+          className="new-post-submission" 
+          onSubmit={this.onSubmit}>
+          <input 
+            type="text" 
+            placeholder="Post" 
+            name="post" 
+            onChange={this.titleChange} 
+            value={this.state.post.post}>
+            </input>
           <button className="button-for-sub">Submit Here</button>
+          <input type="reset"></input>
         </form>
       </div>
     )

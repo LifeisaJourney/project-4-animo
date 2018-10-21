@@ -31,6 +31,7 @@ class App extends Component {
             </div>
             </nav>
             <div>
+              <Route path='/' exact component = {Post} />
               <Route path='/posts/new' component={NewPost} />
               <Route path='/posts' exact component={Post} />
 
