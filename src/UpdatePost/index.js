@@ -6,9 +6,11 @@ export default class UpdatePost extends Component {
     super(props)
     this.state = {
       updatedPost: ''
+      // updatedTitle: ''
     }
     this.onSubmit=this.onSubmit.bind(this);
     this.titleChange=this.titleChange.bind(this);
+    // this.tChange=this.tChange.bind(this);
   }
 
   // componentDidMount = async () => { 
@@ -31,6 +33,7 @@ export default class UpdatePost extends Component {
     // evt.preventDefault();
     const requestBody = JSON.stringify({
       post: {post:this.state.updatedPost}
+      // title: {title: this.state.updatedTitle}
     });
     console.log(evt.target.dataset.id);
     const response = await fetch(`https://animo-news.herokuapp.com/api/posts/${evt.target.dataset.id}`, {
@@ -41,6 +44,7 @@ export default class UpdatePost extends Component {
       }
     });
     this.props.updatedLine(evt.target.dataset.id, this.state.updatedPost);
+    // this.props.updatedLine2(evt.target.dataset.id, this.state.updatedTitle);
   }
 
   titleChange(evt) {
@@ -48,6 +52,13 @@ export default class UpdatePost extends Component {
       updatedPost: evt.target.value
     });
   }
+  
+  // tChange(evt){
+  //   this.setState({
+  //     updatedTitle: evt.target.value
+  //   })
+  // }
+
 //post.created_at.split("T")[0]
   render() {
     const { post } = this.props;
@@ -66,13 +77,20 @@ export default class UpdatePost extends Component {
           onChange={this.titleChange} 
           value={this.state.updatedPost}>
           </input>
+          
+          {/* <input type="text"
+          placeholder="Update Topic"
+          name="update-topic"
+          onChange={this.tChange}
+          value={this.state.updatedTitle}>
+          </input> */}
 
-          <button className="button-for-sub">Submit Here</button>
+          <button className="button-for-sub">Update Post</button>
         </form>
         
         <div>
         <button className="delete-button" onClick={this.deletePost(post.id)}>
-          Delete
+          Delete Post
         </button>
       </div>
       </div>

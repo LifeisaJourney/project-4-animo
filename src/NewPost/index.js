@@ -6,8 +6,10 @@ export default class NewPost extends Component {
     super()
     this.state = {
       post: ''
+      // title: ''
     }
     this.titleChange = this.titleChange.bind(this);
+    // this.tChange=this.tChange.bind(this);
   }
 
   titleChange(evt) {
@@ -16,10 +18,17 @@ export default class NewPost extends Component {
     })
   }
   
+  // tChange(evt) {
+  //   this.setState({
+  //     title: evt.target.value
+  //   })
+  // }
+  
   onSubmit = async (evt) => {
     evt.preventDefault();
     const requestBody = JSON.stringify({
       post: {post:this.state.post}
+      // title: {title:this.state.title}
     });
   
 //
@@ -41,6 +50,13 @@ export default class NewPost extends Component {
           action="/posts"
           className="new-post-submission" 
           onSubmit={this.onSubmit}>
+          {/* <input type="text"
+          placeholder="Title"
+          name="title"
+          onChange={this.tChange}
+          value={this.state.post.title}>
+          </input> */}
+          <br></br>
           <textarea cols="50" rows="20"
             type="text" 
             placeholder="Post" 
@@ -49,7 +65,7 @@ export default class NewPost extends Component {
             value={this.state.post.post}>
             </textarea>
             <br></br>
-          <button className="button-for-sub">Submit Here</button>
+          <button className="button-for-sub">Submit New Post</button>
           <input type="reset"></input>
         </form>
       </div>

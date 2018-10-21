@@ -4,10 +4,21 @@ import Post from './Post';
 // import Login from './Login';
 import NewPost from './NewPost';
 import UpdatePost from './UpdatePost';
+import Comment from './Comments';
 // import Register from './Register';
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Switch, Redirect } from 'react-router-dom';
 
 class App extends Component {
+  // constructor(){
+  //   super()
+  //   this.handleClick=this.handleClick.bind(this);
+  // }
+
+  // handleClick =(e) => {
+  //   e.preventDefault();
+  //   console.log('link was clicked');
+  // }
+
   render() {
     return (
       <Router>
@@ -31,10 +42,14 @@ class App extends Component {
             </div>
             </nav>
             <div>
+              &nbsp;
               <Route path='/' exact component = {Post} />
-              <Route path='/posts/new' component={NewPost} />
               <Route path='/posts' exact component={Post} />
-
+              <Route path='/posts/new' component={NewPost} />
+              <Switch>
+                <Redirect from='/posts/:id' to='/posts/:id/comments'/>
+                <Route exact path='/posts/:id/comments' component={Comment} />
+              </Switch>
             </div>
           </div>
         </div>
