@@ -41,13 +41,14 @@ export default class NewPost extends Component {
           action="/posts"
           className="new-post-submission" 
           onSubmit={this.onSubmit}>
-          <input 
+          <textarea cols="50" rows="20"
             type="text" 
             placeholder="Post" 
             name="post" 
             onChange={this.titleChange} 
             value={this.state.post.post}>
-            </input>
+            </textarea>
+            <br></br>
           <button className="button-for-sub">Submit Here</button>
           <input type="reset"></input>
         </form>
