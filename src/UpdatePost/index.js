@@ -72,11 +72,15 @@ export default class UpdatePost extends Component {
     const { post } = this.props;
     return (
       <div className="each-post" key={post.id}>
+
+        
         <div className="post-post-title">{post.title}</div>
+
 
         <div className="post-title">{post.post}</div>
 
         <div className="day-of-post">{post.created_at.split("T")[0]}</div>
+
 
         <form className="update-post" data-id={post.id} onSubmit={this.onSubmit}>
           <input type="text"
@@ -85,18 +89,20 @@ export default class UpdatePost extends Component {
             onChange={this.titleChange}
             value={this.state.updatedPost}>
           </input>
+          
           {/* <input type="text"
           placeholder="Update Topic"
           name="update-topic"
           onChange={this.tChange}
           value={this.state.updatedTitle}>
-          </input> */}
+        </input> */}
           <button className="button-for-sub">Update Post</button>
         </form>
         <div className="wrapper-delete-button">
           <button className="delete-button" onClick={this.deletePost(post.id)}>
             Delete Post
         </button>
+        <button className="post-post-title-button-wrapper"><Link className="post-post-title-button" to={`/posts/${this.props.id}/comments`}>Add Comments</Link></button>
         </div>
       </div>
     );

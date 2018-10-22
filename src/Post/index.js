@@ -72,6 +72,7 @@ export default class Post extends Component {
         <UpdatePost
           updatedLine={this.updatedLine}
           key={post.id}
+          id = {post.id}
           post={post}
           title={post}
           deletePost={this.deletePost} />
