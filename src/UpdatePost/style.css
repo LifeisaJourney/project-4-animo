@@ -30,6 +30,18 @@
     color: black;
     text-decoration: none;
 }
+
 .post-post-title-button-wrapper{
     margin-left: 20px; 
+    border-radius:0%
+}
+
+.button-for-sub-update{
+    border-radius: 0%;
+    margin: 0 20px;
+}
+
+.delete-button{
+    border-radius: 0%;
+    background-color: red;
 }

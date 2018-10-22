@@ -92,7 +92,7 @@ export default class UpdatePost extends Component {
           onChange={this.tChange}
           value={this.state.updatedTitle}>
         </input> */}
-          <button className="button-for-sub">Update Post</button>
+          <button className="button-for-sub-update">Update Post</button>
         </form>
         <div className="wrapper-delete-button">
           <button className="delete-button" onClick={this.deletePost(post.id)}>

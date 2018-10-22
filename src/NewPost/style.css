@@ -10,4 +10,6 @@
 }
 .button-for-res{
     margin: 0 20px;
+    border-radius: 0%;
+    background-color: red;
 }

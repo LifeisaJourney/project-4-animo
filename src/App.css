@@ -23,7 +23,7 @@ body {
 }
 
 .nav-links {
-  background-color: #011627;
+  background-color: rgba(112,0,0,0.9);
   text-align: center;
   margin: 10px auto;
   padding: 15px;
@@ -47,7 +47,9 @@ body {
 
 }
 
-
+.button{
+  border-radius: 0 !important;
+}
 
 
 
