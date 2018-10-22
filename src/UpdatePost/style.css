@@ -15,6 +15,7 @@
     margin: 10px auto 0px auto; 
     text-align: center;
     padding-bottom: 20px;
+    word-wrap: break-word;
 }
 .wrapper-delete-button{
     margin-top: 15px;
