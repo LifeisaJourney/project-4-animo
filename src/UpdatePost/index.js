@@ -37,7 +37,7 @@ export default class UpdatePost extends Component {
       post: { post: this.state.updatedPost }
       // title: {title: this.state.updatedTitle}
     });
-    console.log(this.props.id);
+    // console.log(this.props.id);
     const response = await fetch(`https://animo-news.herokuapp.com/api/posts/${this.props.id}`, {
       method: 'PUT',
       body: requestBody,

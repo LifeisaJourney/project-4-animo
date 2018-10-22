@@ -26,9 +26,9 @@ export default class Comment extends Component {
     const id = this.props.match.params.id
     const response = await fetch(`https://animo-news.herokuapp.com/api/posts/${id}/comments`);
     const responseBody = await response.json();
-    console.log(responseBody);
+    // console.log(responseBody);
     console.log(responseBody.comments)
-    console.log(responseBody.comments[0]);
+    // console.log(responseBody.comments[0]);
     this.changingToObject(responseBody.comments);
     this.setState({
       comments: this.changingToObject(responseBody.comments)

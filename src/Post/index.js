@@ -29,9 +29,9 @@ export default class Post extends Component {
   fetchPosts = async () => {
     const response = await fetch(`https://animo-news.herokuapp.com/api/posts`);
     const responseBody = await response.json();
-    console.log(responseBody);
+    // console.log(responseBody);
     console.log(responseBody.posts)
-    console.log(responseBody.posts[0])
+    // console.log(responseBody.posts[0])
     this.changingToObject(responseBody.posts);
     this.setState({
       posts: this.changingToObject(responseBody.posts)
