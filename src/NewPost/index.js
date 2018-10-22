@@ -30,8 +30,7 @@ export default class NewPost extends Component {
       post: {post:this.state.post}
       // title: {title:this.state.title}
     });
-  
-//
+
 //https://localhost:3000
     const response = await fetch('https://animo-news.herokuapp.com/api/posts', {
       method: 'POST',
@@ -49,12 +48,6 @@ export default class NewPost extends Component {
           action="/posts"
           className="new-post-submission" 
           onSubmit={this.onSubmit}>
-          {/* <input type="text"
-          placeholder="Title"
-          name="title"
-          onChange={this.tChange}
-          value={this.state.post.title}>
-          </input> */}
           <br></br>
           <textarea cols="50" rows="20"
             type="text" 

@@ -11,18 +11,6 @@ export default class Comment extends Component {
   }
 
   componentDidMount = async () => {
-    // const id = this.props.match.params.id;
-    // const commentsResponse = await fetch(``, {
-    //   method: 'GET',
-    //   body: commentsBody,
-    //   headers: {
-    //     'Content-Type': 'application/json'
-    //   }
-    // });
-    // const commentsBody = await commentsResponse.json();
-    // this.setState({
-    //   comments: commentsBody
-    // });
     this.fetchComments();
   }
 
@@ -47,17 +35,6 @@ export default class Comment extends Component {
     });
   }
 
-  // renderComment = () => {
-  //   return Object.values(this.state.comments).map(comment => {
-  //     return (
-  //       <div>
-  //         {console.log(comment)}
-  //         hi
-  //       </div>
-  //     )
-  //   })
-  // }
-
   renderComment = () => {
       return Object.values(this.state.comments).map(comment => {
         return (
@@ -68,10 +45,6 @@ export default class Comment extends Component {
         )
     })
   }
-
-  // <div key={comment.id}>
-  // {/* <div className="title">{comment.post}</div> */}
-  // {/* <div className="day-of-post">{post.created_at.split("T")[0]}</div> */}
 
   render() {
     return (
