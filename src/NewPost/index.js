@@ -40,7 +40,6 @@ export default class NewPost extends Component {
         'Content-Type': 'application/json'
       }
     })
-    
   }
 
   render() {
@@ -65,8 +64,10 @@ export default class NewPost extends Component {
             value={this.state.post.post}>
             </textarea>
             <br></br>
+            <div className="submit-reset-button-wrapper">
           <button className="button-for-sub">Submit New Post</button>
-          <input type="reset"></input>
+          <input className="button-for-res" type="reset"></input>
+            </div>
         </form>
       </div>
     )

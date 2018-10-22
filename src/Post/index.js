@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "../Post/style.css";
 import UpdatePost from '../UpdatePost';
+import { BrowserRouter as Router, Route, Link, Switch, Redirect } from 'react-router-dom';
 
 export default class Post extends Component {
   constructor() {
@@ -8,10 +9,9 @@ export default class Post extends Component {
     this.state = {
       posts: {},
       updatedPost: ''
-      // updatedTitle: ''
     }
     this.titleChange = this.titleChange.bind(this);
-    // this.tChange=this.tChange.bind(this);
+    this.routeChange=this.routeChange.bind(this);
   }
 
   componentDidMount = async () => {
@@ -26,13 +26,12 @@ export default class Post extends Component {
     return holder;
   }
 
-  // https://animo-news.herokuapp.com/api/posts
   fetchPosts = async () => {
     const response = await fetch(`https://animo-news.herokuapp.com/api/posts`);
     const responseBody = await response.json();
-    // console.log(responseBody);
-    console.log(responseBody.posts);
-    // console.log(responseBody.posts[0]);
+    console.log(responseBody);
+    console.log(responseBody.posts)
+    console.log(responseBody.posts[0])
     this.changingToObject(responseBody.posts);
     this.setState({
       posts: this.changingToObject(responseBody.posts)
@@ -55,25 +54,17 @@ export default class Post extends Component {
     })
   }
 
-  // updatedLine2 = (id, newTitle) => {
-  //   let updatedLine2 = this.state.posts;
-  //   updatedLine2[id].title = newTitle;
-  //   this.setState({
-  //     posts: updatedLine2
-  //   })
-  // }
-
   titleChange(evt) {
     this.setState({
       updatedPost: evt.target.value
     });
   }
 
-  // tChange(evt){
-  //   this.setState({
-  //     updatedTitle: evt.target.value
-  //   })
-  // }
+  routeChange(){
+    const id = this.props.match.params.id;
+    let path = `https://animo-news.herokuapp.com/api/posts/${id}/comments`;
+    this.props.history.push(path);
+  }
 
   renderPost = () => {
     return Object.values(this.state.posts).map(post => {
@@ -83,7 +74,6 @@ export default class Post extends Component {
           key={post.id}
           post={post}
           title={post}
-          // updatedLine2={this.updatedLine2}
           deletePost={this.deletePost} />
       )
     })
@@ -93,6 +83,7 @@ export default class Post extends Component {
     return (
       <div className="render-post">
         {this.renderPost()}
+        
       </div>
     );
   }

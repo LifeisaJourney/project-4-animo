@@ -35,7 +35,7 @@ class App extends Component {
             </div>
               <div className="link-wrapper">
                 <Link
-                  className="posts-new"
+                  className="link"
                   to='/posts/new'>New Post </Link>
                 &nbsp;
                 &nbsp;
@@ -43,12 +43,14 @@ class App extends Component {
             </nav>
             <div>
               &nbsp;
-              <Route path='/' exact component={Post} />
-              <Route path='/posts' exact component={Post} />
-              <Route path='/posts/new' component={NewPost} />
-              {/* <Redirect from='/posts/:id' to='/posts/:id/comments'/> */}
-              {/* <Route exact path='/posts/:id/comments' component={Comment} /> */}
-              <Route path='/posts/:id/comments' component={Comment} />
+              <Switch>
+                <Route path='/' exact component={Post} />
+                <Route path='/posts' exact component={Post} />
+                <Route path='/posts/new' component={NewPost} />
+                {/* <Redirect from='/posts/:id' to='/posts/:id/comments'/> */}
+                {/* <Route exact path='/posts/:id/comments' component={Comment} /> */}
+                <Route path='/posts/:id/comments' component={Comment} />
+              </Switch>
             </div>
           </div>
         </div>

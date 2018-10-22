@@ -1,4 +1,13 @@
 .new-post-submission{
-    margin: 20px;
-    
+    margin: 0 auto;
+    text-align: center;   
+}
+.submit-reset-button-wrapper{
+    margin: 10px auto;
+}
+.button-for-sub{
+    margin: 0 20px;
+}
+.button-for-res{
+    margin: 0 20px;
 }

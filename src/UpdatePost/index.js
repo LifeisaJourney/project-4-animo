@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import "../UpdatePost/style.css"
+import { BrowserRouter as Router, Route, Link, Switch, Redirect } from 'react-router-dom';
+
 
 export default class UpdatePost extends Component {
   constructor(props) {
@@ -8,8 +10,8 @@ export default class UpdatePost extends Component {
       updatedPost: ''
       // updatedTitle: ''
     }
-    this.onSubmit=this.onSubmit.bind(this);
-    this.titleChange=this.titleChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
+    this.titleChange = this.titleChange.bind(this);
     // this.tChange=this.tChange.bind(this);
   }
 
@@ -17,7 +19,7 @@ export default class UpdatePost extends Component {
   //   this.deletePost();
   // }
 
-//https://animo-news.herokuapp.com/api/posts/${id}
+  //https://animo-news.herokuapp.com/api/posts/${id}
   deletePost = (id) => async () => {
     const deletePost = await fetch(`https://animo-news.herokuapp.com/api/posts/${id}`, {
       method: 'DELETE',
@@ -28,11 +30,11 @@ export default class UpdatePost extends Component {
     });
     this.props.deletePost(id);
   }
-//https://animo-news.herokuapp.com/api/posts/${evt.target.dataset.id}
+  //https://animo-news.herokuapp.com/api/posts/${evt.target.dataset.id}
   onSubmit = async (evt) => {
     // evt.preventDefault();
     const requestBody = JSON.stringify({
-      post: {post:this.state.updatedPost}
+      post: { post: this.state.updatedPost }
       // title: {title: this.state.updatedTitle}
     });
     console.log(evt.target.dataset.id);
@@ -52,47 +54,50 @@ export default class UpdatePost extends Component {
       updatedPost: evt.target.value
     });
   }
-  
+
+  // routeChange(){
+  //   const id = this.props.match.params.id;
+  //   let path = `/api/posts/${id}/comments`;
+  //   this.props.history.push(path);
+  // }
+
   // tChange(evt){
   //   this.setState({
   //     updatedTitle: evt.target.value
   //   })
   // }
 
-//post.created_at.split("T")[0]
+  //post.created_at.split("T")[0]
   render() {
     const { post } = this.props;
     return (
-      <div key={post.id}>
+      <div className="each-post" key={post.id}>
         <div className="post-post-title">{post.title}</div>
 
         <div className="post-title">{post.post}</div>
 
         <div className="day-of-post">{post.created_at.split("T")[0]}</div>
 
-        <form className="update-post" data-id={post.id}  onSubmit={this.onSubmit}>
-          <input type="text" 
-          placeholder="Update Post" 
-          name="update" 
-          onChange={this.titleChange} 
-          value={this.state.updatedPost}>
+        <form className="update-post" data-id={post.id} onSubmit={this.onSubmit}>
+          <input type="text"
+            placeholder="Update Post"
+            name="update"
+            onChange={this.titleChange}
+            value={this.state.updatedPost}>
           </input>
-          
           {/* <input type="text"
           placeholder="Update Topic"
           name="update-topic"
           onChange={this.tChange}
           value={this.state.updatedTitle}>
           </input> */}
-
           <button className="button-for-sub">Update Post</button>
         </form>
-        
-        <div>
-        <button className="delete-button" onClick={this.deletePost(post.id)}>
-          Delete Post
+        <div className="wrapper-delete-button">
+          <button className="delete-button" onClick={this.deletePost(post.id)}>
+            Delete Post
         </button>
-      </div>
+        </div>
       </div>
     );
   }
