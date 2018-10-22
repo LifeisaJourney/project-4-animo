@@ -21,7 +21,7 @@ class App extends Component {
 
   render() {
     return (
-      <Router>
+      <Router >
         <div className="App">
           <div className="App-wrapper">
             <h1 className='welcome-screen-title'>Animal-News</h1>

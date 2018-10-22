@@ -38,7 +38,9 @@ export default class NewPost extends Component {
       headers: {
         'Content-Type': 'application/json'
       }
-    })
+    });
+
+    this.props.history.push('/posts')
   }
 
   render() {
@@ -66,3 +68,4 @@ export default class NewPost extends Component {
     )
   }
 }
+// export default createBrowserHistory();
