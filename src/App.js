@@ -39,6 +39,11 @@ class App extends Component {
                   to='/posts/new'>New Post </Link>
                 &nbsp;
                 &nbsp;
+                <Link
+                  className="link"
+                  to="/posts/1/comments">Comments </Link>
+                &nbsp;
+                &nbsp;
             </div>
             </nav>
             <div>
