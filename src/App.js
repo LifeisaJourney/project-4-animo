@@ -4,7 +4,7 @@ import Post from './Post';
 // import Login from './Login';
 import NewPost from './NewPost';
 import UpdatePost from './UpdatePost';
-import Comment from './Comments';
+import Comment from './Comment';
 // import Register from './Register';
 import { BrowserRouter as Router, Route, Link, Switch, Redirect } from 'react-router-dom';
 
@@ -43,13 +43,12 @@ class App extends Component {
             </nav>
             <div>
               &nbsp;
-              <Route path='/' exact component = {Post} />
+              <Route path='/' exact component={Post} />
               <Route path='/posts' exact component={Post} />
               <Route path='/posts/new' component={NewPost} />
-              <Switch>
-                <Redirect from='/posts/:id' to='/posts/:id/comments'/>
-                <Route exact path='/posts/:id/comments' component={Comment} />
-              </Switch>
+              {/* <Redirect from='/posts/:id' to='/posts/:id/comments'/> */}
+              {/* <Route exact path='/posts/:id/comments' component={Comment} /> */}
+              <Route path='/posts/:id/comments' component={Comment} />
             </div>
           </div>
         </div>
